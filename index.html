@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Window Cutting & Best Optimizer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    body { background: #f8fafc; font-family: sans-serif; color: #0f172a; font-size: 13px; }
+    .header-bar { background: #0f172a; color: white; padding: 12px 0; }
+    .table-job th { background: #0f172a !important; color: white !important; font-size: 12px; text-align: center; }
+    .table-job td { text-align: center; border: 1px solid #cbd5e1; vertical-align: middle; }
+    .cut-val { font-weight: 700; color: #0f172a; }
+    .glass-val { font-weight: 700; color: #047857; background: #ecfdf5; }
+    .visual-bar { display: flex; height: 32px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; overflow: hidden; width: 100%; margin-bottom: 8px; }
+    .cut-piece { background: #3b82f6; color: white; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600; border-right: 1px solid #1e3a8a; }
+    .waste-piece { background: #fca5a5; color: #7f1d1d; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+    .stock-badge { background: #10b981; color: white; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
+  </style>
+</head>
+<body>
+<header class="header-bar mb-3">
+  <div class="container-fluid px-4"><h5 class="fw-bold mb-0">🪟 विंडो कटींग व बेस्ट 15'/12' ऑप्टिमायझर</h5></div>
+</header>
+<div class="container-fluid px-4 pb-5">
+  <div class="card p-3 mb-3">
+    <div class="d-flex justify-content-between mb-2">
+      <h6 class="fw-bold text-primary">खिडक्यांची मापे भरा</h6>
+      <div>
+        <button class="btn btn-sm btn-outline-primary" onclick="addRows(3)">+३ ओळी</button>
+        <button class="btn btn-sm btn-dark" onclick="loadSampleData()">डेमो</button>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center align-middle" id="inputTable">
+        <thead class="table-light">
+          <tr><th>क्र.</th><th>प्रकार</th><th>सेक्शन</th><th>रुंदी W</th><th>उंची H</th><th>नग</th><th>काढा</th></tr>
+        </thead>
+        <tbody id="inputTableBody"></tbody>
+      </table>
+    </div>
+    <button class="btn btn-primary fw-bold mt-2" onclick="calculateEverything()">कटींग व सर्वात कमी वेस्टेज काढा</button>
+  </div>
+  <div id="resultsWrapper" style="display: none;">
+    <div class="card p-2 mb-3">
+      <strong>मास्टर कटींग टेबल (Master Job Card)</strong>
+      <div class="table-responsive mt-2">
+        <table class="table table-sm table-job mb-0">
+          <thead>
+            <tr><th>क्र.</th><th>Window sizes H × W</th><th>Top</th><th>Sides</th><th>Bottom</th><th>Handel</th><th>Interlock</th><th>T/B</th><th style="background:#047857!important; color:white;">Glass size (२ नग)</th></tr>
+          </thead>
+          <tbody id="perWindowCutTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card p-3">
+      <strong>पाईप कटींग नकाशा (Lowest Waste Mix)</strong>
+      <div id="visualBarsContainer" class="mt-2"></div>
+    </div>
+  </div>
+</div>
