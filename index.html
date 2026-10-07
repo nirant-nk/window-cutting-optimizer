@@ -1,62 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="mr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Window Cutting & Best Optimizer</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <style>
-    body { background: #f8fafc; font-family: sans-serif; color: #0f172a; font-size: 13px; }
-    .header-bar { background: #0f172a; color: white; padding: 12px 0; }
-    .table-job th { background: #0f172a !important; color: white !important; font-size: 12px; text-align: center; }
-    .table-job td { text-align: center; border: 1px solid #cbd5e1; vertical-align: middle; }
-    .cut-val { font-weight: 700; color: #0f172a; }
-    .glass-val { font-weight: 700; color: #047857; background: #ecfdf5; }
-    .visual-bar { display: flex; height: 32px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 4px; overflow: hidden; width: 100%; margin-bottom: 8px; }
-    .cut-piece { background: #3b82f6; color: white; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600; border-right: 1px solid #1e3a8a; }
-    .waste-piece { background: #fca5a5; color: #7f1d1d; font-size: 10px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
-    .stock-badge { background: #10b981; color: white; font-weight: 700; padding: 4px 8px; border-radius: 4px; font-size: 12px; }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="12 आणि 15 फूट प्रोफाइलसाठी विंडो कटिंग ऑप्टिमायझर">
+<title>Window Cutting Optimizer</title>
+<style>
+:root{--ink:#0f172a;--muted:#64748b;--line:#cbd5e1;--bg:#f1f5f9;--blue:#2563eb;--green:#047857;--red:#b91c1c}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}.header{background:var(--ink);color:#fff}.wrap{width:min(1500px,100%);margin:auto;padding:18px 22px}.header .wrap{padding-block:14px}.header h1{margin:0;font-size:clamp(17px,2vw,22px)}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 2px 10px #0f172a0a;padding:18px;margin-bottom:16px}.toolbar,.actions,.summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.toolbar{justify-content:space-between;margin-bottom:12px}.toolbar h2,.card h2{font-size:16px;margin:0}.actions{justify-content:flex-end}button{font:inherit;font-weight:700;border:1px solid transparent;border-radius:8px;padding:8px 12px;cursor:pointer;background:#fff;color:var(--ink)}button:hover{filter:brightness(.96)}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #93c5fd;outline-offset:1px}.primary{background:var(--blue);color:#fff}.dark{background:var(--ink);color:#fff}.outline{border-color:var(--blue);color:var(--blue)}.danger{color:var(--red);border-color:#fecaca;padding:6px 9px}.calculate{width:100%;margin-top:12px;padding:11px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:8px}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:8px;text-align:center;vertical-align:middle}th:last-child,td:last-child{border-right:0}tbody tr:last-child td{border-bottom:0}th{background:#f8fafc;font-size:12px;white-space:nowrap}.job th{background:var(--ink);color:#fff}.job .glass-head{background:var(--green)}input,select{width:100%;min-width:80px;border:1px solid var(--line);border-radius:6px;padding:7px;background:#fff;color:var(--ink);font:inherit}.row-number,.cut{font-weight:750}.glass{font-weight:750;color:var(--green);background:#ecfdf5}.hidden{display:none!important}.summary{margin:12px 0}.stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:9px 12px}.stat strong{display:block;font-size:17px}.stat span,.hint{color:var(--muted);font-size:12px}.profile{margin-top:20px}.profile h3{font-size:14px;margin:0 0 9px}.bar-row{display:grid;grid-template-columns:minmax(100px,150px) 1fr minmax(90px,auto);gap:10px;align-items:center;margin-bottom:10px}.bar-label{font-size:12px;font-weight:750}.bar{display:flex;height:38px;background:#e2e8f0;border:1px solid var(--line);border-radius:6px;overflow:hidden}.piece,.waste{display:grid;place-items:center;min-width:0;font-size:10px;font-weight:750;white-space:nowrap;overflow:hidden}.piece{background:#3b82f6;color:#fff;border-right:1px solid #1d4ed8}.piece:nth-child(even){background:#0ea5e9}.waste{background:#fca5a5;color:#7f1d1d}.bar-meta{font-size:11px;color:var(--muted)}.error{margin-top:10px;padding:10px;border-radius:7px;color:var(--red);background:#fee2e2;font-weight:650}@media(max-width:700px){.wrap{padding:12px}.card{padding:12px}.bar-row{grid-template-columns:1fr}.bar-meta{margin-top:-6px}.actions{width:100%}.actions button{flex:1}}
+</style>
 </head>
 <body>
-<header class="header-bar mb-3">
-  <div class="container-fluid px-4"><h5 class="fw-bold mb-0">🪟 विंडो कटींग व बेस्ट 15'/12' ऑप्टिमायझर</h5></div>
-</header>
-<div class="container-fluid px-4 pb-5">
-  <div class="card p-3 mb-3">
-    <div class="d-flex justify-content-between mb-2">
-      <h6 class="fw-bold text-primary">खिडक्यांची मापे भरा</h6>
-      <div>
-        <button class="btn btn-sm btn-outline-primary" onclick="addRows(3)">+३ ओळी</button>
-        <button class="btn btn-sm btn-dark" onclick="loadSampleData()">डेमो</button>
-      </div>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-bordered text-center align-middle" id="inputTable">
-        <thead class="table-light">
-          <tr><th>क्र.</th><th>प्रकार</th><th>सेक्शन</th><th>रुंदी W</th><th>उंची H</th><th>नग</th><th>काढा</th></tr>
-        </thead>
-        <tbody id="inputTableBody"></tbody>
-      </table>
-    </div>
-    <button class="btn btn-primary fw-bold mt-2" onclick="calculateEverything()">कटींग व सर्वात कमी वेस्टेज काढा</button>
-  </div>
-  <div id="resultsWrapper" style="display: none;">
-    <div class="card p-2 mb-3">
-      <strong>मास्टर कटींग टेबल (Master Job Card)</strong>
-      <div class="table-responsive mt-2">
-        <table class="table table-sm table-job mb-0">
-          <thead>
-            <tr><th>क्र.</th><th>Window sizes H × W</th><th>Top</th><th>Sides</th><th>Bottom</th><th>Handel</th><th>Interlock</th><th>T/B</th><th style="background:#047857!important; color:white;">Glass size (२ नग)</th></tr>
-          </thead>
-          <tbody id="perWindowCutTableBody"></tbody>
-        </table>
-      </div>
-    </div>
-    <div class="card p-3">
-      <strong>पाईप कटींग नकाशा (Lowest Waste Mix)</strong>
-      <div id="visualBarsContainer" class="mt-2"></div>
-    </div>
-  </div>
-</div>
+<header class="header"><div class="wrap"><h1>🪟 विंडो कटिंग व 15′/12′ ऑप्टिमायझर</h1></div></header>
+<main class="wrap">
+<section class="card" aria-labelledby="input-heading">
+  <div class="toolbar"><h2 id="input-heading">खिडक्यांची मापे भरा <span class="hint">(सर्व मापे इंचात)</span></h2><div class="actions"><button class="outline" type="button" id="addRows">+३ ओळी</button><button class="dark" type="button" id="demo">डेमो</button></div></div>
+  <div class="table-wrap"><table aria-label="Window measurements"><thead><tr><th>क्र.</th><th>प्रकार</th><th>सेक्शन / काम</th><th>रुंदी W</th><th>उंची H</th><th>नग</th><th>काढा</th></tr></thead><tbody id="inputs"></tbody></table></div>
+  <div id="error" class="error hidden" role="alert"></div><button class="primary calculate" type="button" id="calculate">कटिंग व कमी वेस्टेज प्लॅन काढा</button>
+</section>
+<section id="results" class="hidden" aria-live="polite">
+  <div class="card"><h2>मास्टर कटिंग टेबल (Master Job Card)</h2><div class="table-wrap" style="margin-top:12px"><table class="job"><thead><tr><th>क्र.</th><th>Window H × W</th><th>Top</th><th>Sides</th><th>Bottom</th><th>Handle</th><th>Interlock</th><th>T/B</th><th class="glass-head">Glass size</th></tr></thead><tbody id="jobBody"></tbody></table></div></div>
+  <div class="card"><h2>पाईप कटिंग नकाशा (Optimized Waste Mix)</h2><div id="summary" class="summary"></div><p class="hint">प्रत्येक कटमध्ये ⅛″ blade kerf धरला आहे. वेगवेगळे प्रोफाइल एकाच पाईपमध्ये मिसळलेले नाहीत.</p><div id="bars"></div></div>
+</section>
+</main>
+<script>
+(()=>{'use strict';
+const $=(s,r=document)=>r.querySelector(s),inputs=$('#inputs'),results=$('#results'),errorBox=$('#error'),KERF=.125,STOCKS=[144,180];let nextId=1;
+const esc=v=>String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const fmt=v=>Number(v.toFixed(3)).toLocaleString('en-IN',{maximumFractionDigits:3});
+function renumber(){[...inputs.rows].forEach((r,i)=>$('.row-number',r).textContent=i+1)}
+function addRows(count=1,data=[]){const f=document.createDocumentFragment();for(let i=0;i<count;i++){const x=data[i]||{},r=document.createElement('tr');r.dataset.id=nextId++;r.innerHTML=`<td class="row-number"></td><td><select class="type" aria-label="खिडकी प्रकार"><option value="2">2 Track</option><option value="3">3 Track</option></select></td><td><input class="section" value="${esc(x.section||'')}" placeholder="उदा. हॉल" aria-label="सेक्शन"></td><td><input class="width" type="number" min="1" max="180" step="0.125" value="${x.width||''}" inputmode="decimal" aria-label="रुंदी"></td><td><input class="height" type="number" min="1" max="180" step="0.125" value="${x.height||''}" inputmode="decimal" aria-label="उंची"></td><td><input class="qty" type="number" min="1" max="999" step="1" value="${x.qty||1}" inputmode="numeric" aria-label="नग"></td><td><button class="danger remove" type="button" aria-label="ओळ काढा">✕</button></td>`;$('.type',r).value=String(x.type||2);f.append(r)}inputs.append(f);renumber()}
+function loadDemo(){inputs.replaceChildren();nextId=1;addRows(3,[{type:2,section:'हॉल',width:60,height:48,qty:2},{type:3,section:'बेडरूम',width:72,height:54,qty:1},{type:2,section:'किचन',width:48,height:42,qty:2}]);results.classList.add('hidden');hideError()}
+function readWindows(){const out=[];[...inputs.rows].forEach((r,i)=>{const width=Number($('.width',r).value),height=Number($('.height',r).value),qty=Number($('.qty',r).value);if(!width&&!height)return;if(!(width>0&&height>0&&Number.isInteger(qty)&&qty>0))throw Error(`ओळ ${i+1}: योग्य रुंदी, उंची आणि नग भरा.`);if(width>180||height>180)throw Error(`ओळ ${i+1}: 180″ पेक्षा मोठा कट उपलब्ध पाईपमध्ये बसत नाही.`);out.push({type:Number($('.type',r).value),section:$('.section',r).value.trim(),width,height,qty})});if(!out.length)throw Error('किमान एका खिडकीची रुंदी व उंची भरा.');return out}
+// Shop-specific allowances can be changed centrally here.
+function cutsFor(w){const sw=w.type===3?(w.width-5)/3+1:(w.width-4)/2+1,sh=w.height-5;if(sw<=0||sh<=0)throw Error(`खिडकी ${w.height} × ${w.width}: माप खूप लहान आहे.`);return{display:{top:w.width,sides:w.height-1,bottom:w.width,handle:w.height-3,interlock:w.height-3,tb:sw,glassW:sw-1.5,glassH:sh-1.5},pieces:[['Top',w.width,1],['Side',w.height-1,2],['Bottom',w.width,1],['Handle',w.height-3,w.type],['Interlock',w.height-3,w.type],['T/B',sw,w.type*2]]}}
+function expandPieces(ws){const groups=new Map;ws.forEach((w,wi)=>cutsFor(w).pieces.forEach(([profile,length,count])=>{const list=groups.get(profile)||[];for(let n=0;n<count*w.qty;n++)list.push({length,label:`W${wi+1}`});groups.set(profile,list)}));return groups}
+function pack(pieces){const bars=[];[...pieces].sort((a,b)=>b.length-a.length).forEach(piece=>{let best=null;bars.forEach((bar,index)=>{const used=bar.pieces.reduce((s,p)=>s+p.length,0)+KERF*bar.pieces.length,remaining=bar.stock-used,need=piece.length+KERF;if(need<=remaining+1e-9&&(!best||remaining-need<best.waste))best={index,waste:remaining-need}});if(best)bars[best.index].pieces.push(piece);else bars.push({stock:180,pieces:[piece]})});bars.forEach(bar=>{const used=bar.pieces.reduce((s,p)=>s+p.length,0)+KERF*bar.pieces.length;if(used<=144)bar.stock=144});return bars}
+function renderJob(ws){const body=$('#jobBody');body.replaceChildren();ws.forEach((w,i)=>{const d=cutsFor(w).display,r=document.createElement('tr');r.innerHTML=`<td>${i+1}</td><td><strong>${fmt(w.height)} × ${fmt(w.width)}</strong><br><span class="hint">${esc(w.section||'—')} · ${w.type}T · ${w.qty} नग</span></td><td class="cut">${fmt(d.top)} × 1</td><td class="cut">${fmt(d.sides)} × 2</td><td class="cut">${fmt(d.bottom)} × 1</td><td class="cut">${fmt(d.handle)} × ${w.type}</td><td class="cut">${fmt(d.interlock)} × ${w.type}</td><td class="cut">${fmt(d.tb)} × ${w.type*2}</td><td class="glass">${fmt(d.glassH)} × ${fmt(d.glassW)}<br>प्रति sash</td>`;body.append(r)})}
+function renderBars(groups){const container=$('#bars');container.replaceChildren();let totalStock=0,totalWaste=0,totalBars=0,totalCuts=0;groups.forEach((pieces,profile)=>{const packed=pack(pieces),section=document.createElement('section'),title=document.createElement('h3');section.className='profile';title.textContent=`${profile} profile — ${pieces.length} cuts / ${packed.length} pipes`;section.append(title);packed.forEach((bar,i)=>{const cut=bar.pieces.reduce((s,p)=>s+p.length,0),waste=Math.max(0,bar.stock-cut-KERF*bar.pieces.length),row=document.createElement('div');totalStock+=bar.stock;totalWaste+=waste;totalBars++;totalCuts+=bar.pieces.length;row.className='bar-row';const parts=bar.pieces.map(p=>`<span class="piece" style="width:${p.length/bar.stock*100}%" title="${esc(p.label)}: ${fmt(p.length)}″">${fmt(p.length)}″</span>`).join('');row.innerHTML=`<div class="bar-label">${profile} ${i+1} <span class="hint">(${bar.stock/12}′)</span></div><div class="bar" aria-label="${profile} pipe ${i+1}">${parts}<span class="waste" style="width:${waste/bar.stock*100}%" title="Waste ${fmt(waste)} inches">${waste>=8?fmt(waste)+'″':''}</span></div><div class="bar-meta">वेस्ट ${fmt(waste)}″</div>`;section.append(row)});container.append(section)});const efficiency=totalStock?(totalStock-totalWaste)/totalStock*100:0;$('#summary').innerHTML=`<div class="stat"><strong>${totalBars}</strong><span>एकूण पाईप</span></div><div class="stat"><strong>${totalCuts}</strong><span>एकूण कट</span></div><div class="stat"><strong>${fmt(totalWaste)}″</strong><span>एकूण वेस्ट</span></div><div class="stat"><strong>${fmt(efficiency)}%</strong><span>मटेरियल वापर</span></div>`}
+function calculate(){try{const ws=readWindows();renderJob(ws);renderBars(expandPieces(ws));hideError();results.classList.remove('hidden');results.scrollIntoView({behavior:'smooth',block:'start'})}catch(e){results.classList.add('hidden');errorBox.textContent=e.message;errorBox.classList.remove('hidden')}}function hideError(){errorBox.classList.add('hidden');errorBox.textContent=''}
+$('#addRows').addEventListener('click',()=>addRows(3));$('#demo').addEventListener('click',loadDemo);$('#calculate').addEventListener('click',calculate);inputs.addEventListener('click',e=>{const b=e.target.closest('.remove');if(!b)return;b.closest('tr').remove();if(!inputs.rows.length)addRows(1);renumber();results.classList.add('hidden')});inputs.addEventListener('input',()=>results.classList.add('hidden'));addRows(3);
+})();
+</script>
+</body></html>
